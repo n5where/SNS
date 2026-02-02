@@ -2,14 +2,33 @@
 
 /**
  * SNS Dashboard Main Script
- * Handles any dynamic initialization or responsive adjustments required for the widgets.
+ * Handles dynamic initialization for widgets.
  */
 
 console.log('SNS Dashboard initialized.');
 
-// Optional: Add logic here if we need to manually trigger widget resize on window resize
-// Most official widgets handle this internally, but sometimes extra help is needed.
+// Twitter (X) Widget Loader
+// Explicitly loads the widgets.js to ensure rendering, especially in some SPA or preview environments.
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+
+// Fallback: If the widget doesn't render automatically, try to flush it after load.
 document.addEventListener('DOMContentLoaded', () => {
-    // Placeholder for any future interactivity
+    if (window.twttr && window.twttr.widgets) {
+        window.twttr.widgets.load();
+    }
 });

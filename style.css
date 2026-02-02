@@ -1,1 +1,135 @@
-/* Add styles here */
+:root {
+    --primary-color: #1877F2; /* Facebook Blue */
+    --secondary-color: #000000; /* X Black */
+    --bg-color: #f4f6f8;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --header-bg: #1e3a8a; /* Deep Blue for dignity */
+    --header-text: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.header-content h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.header-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Main Container */
+.sns-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .sns-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+/* Feed Sections */
+.sns-feed {
+    flex: 1;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px;
+}
+
+.feed-header {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.facebook-feed .feed-header {
+    background-color: #f0f2f5;
+    color: var(--primary-color);
+}
+
+.x-feed .feed-header {
+    background-color: #f5f8fa;
+    color: var(--secondary-color);
+}
+
+.feed-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.feed-header .icon {
+    font-size: 1.5rem;
+}
+
+.feed-content {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    flex-grow: 1;
+}
+
+/* Embed Specific Adjustments */
+.fb-page, .fb-page span, .fb-page iframe {
+    width: 100% !important;
+    max-width: 500px;
+}
+
+.twitter-timeline {
+    width: 100% !important;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #fff;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #eaeaea;
+}

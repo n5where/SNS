@@ -1,14 +1,69 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이재명 대통령 SNS 대시보드</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v19.0" nonce="random"></script>
+
+    <header class="main-header">
+        <div class="header-content">
+            <h1>이재명 대통령 SNS 모아보기</h1>
+            <p>공식 페이스북과 X(트위터) 소식을 한곳에서 확인하세요.</p>
+        </div>
+    </header>
+
+    <main class="sns-container">
+        <!-- Facebook Section -->
+        <section class="sns-feed facebook-feed">
+            <div class="feed-header">
+                <h2>Facebook</h2>
+                <span class="icon">📘</span>
+            </div>
+            <div class="feed-content">
+                <div class="fb-page" 
+                     data-href="https://www.facebook.com/jaemyung.lee" 
+                     data-tabs="timeline" 
+                     data-width="500" 
+                     data-height="800" 
+                     data-small-header="false" 
+                     data-adapt-container-width="true" 
+                     data-hide-cover="false" 
+                     data-show-facepile="false">
+                    <blockquote cite="https://www.facebook.com/jaemyung.lee" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/jaemyung.lee">이재명</a>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- X (Twitter) Section -->
+        <section class="sns-feed x-feed">
+            <div class="feed-header">
+                <h2>X (Twitter)</h2>
+                <span class="icon">🐦</span>
+            </div>
+            <div class="feed-content">
+                <a class="twitter-timeline" 
+                   data-height="800" 
+                   data-theme="light"
+                   href="https://twitter.com/Jaemyung_Lee?ref_src=twsrc%5Etfw">
+                   Tweets by Jaemyung_Lee
+                </a> 
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 SNS Dashboard Project. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="main.js"></script>
 </body>
 </html>
